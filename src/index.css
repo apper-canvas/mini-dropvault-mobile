@@ -1,0 +1,120 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .file-drop-zone {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+    border: 2px dashed #c7d2fe;
+    transition: all 0.3s ease;
+  }
+  
+  .file-drop-zone.drag-over {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+    border-color: #6366f1;
+    transform: scale(1.02);
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-purple-600 hover:from-primary-dark hover:to-purple-700 text-white font-medium py-3 px-6 rounded-xl shadow-card hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface-100 hover:bg-surface-200 dark:bg-surface-700 dark:hover:bg-surface-600 text-surface-700 dark:text-surface-200 font-medium py-3 px-6 rounded-xl shadow-card hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-surface-400 focus:ring-offset-2;
+  }
+  
+  .card {
+    @apply bg-white/80 dark:bg-surface-800/80 backdrop-blur-sm rounded-2xl shadow-card hover:shadow-lg transition-all duration-300 border border-surface-200/50 dark:border-surface-700/50;
+  }
+  
+  .file-item {
+    @apply bg-white/60 dark:bg-surface-800/60 backdrop-blur-sm rounded-xl border border-surface-200/30 dark:border-surface-700/30 hover:border-primary/30 hover:shadow-soft transition-all duration-200 group;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-100 dark:bg-surface-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-300 dark:bg-surface-600 rounded-full hover:bg-surface-400 dark:hover:bg-surface-500;
+}
+
+/* File type icons */
+.file-icon {
+  @apply w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg text-white font-semibold text-sm;
+}
+
+.file-icon.pdf {
+  @apply bg-red-500;
+}
+
+.file-icon.doc, .file-icon.docx {
+  @apply bg-blue-600;
+}
+
+.file-icon.xls, .file-icon.xlsx {
+  @apply bg-green-600;
+}
+
+.file-icon.ppt, .file-icon.pptx {
+  @apply bg-orange-500;
+}
+
+.file-icon.jpg, .file-icon.jpeg, .file-icon.png, .file-icon.gif {
+  @apply bg-purple-500;
+}
+
+.file-icon.mp4, .file-icon.avi, .file-icon.mov {
+  @apply bg-pink-500;
+}
+
+.file-icon.mp3, .file-icon.wav, .file-icon.flac {
+  @apply bg-indigo-500;
+}
+
+.file-icon.zip, .file-icon.rar, .file-icon.7z {
+  @apply bg-gray-600;
+}
+
+.file-icon.default {
+  @apply bg-surface-400;
+}
