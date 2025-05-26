@@ -2,7 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Home from './pages/Home'
-import NotFound from './pages/NotFound'
+import Privacy from './pages/Privacy'
+
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
     <div className={`min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-surface-900 dark:via-surface-800 dark:to-indigo-900 transition-all duration-300`}>
       <Routes>
         <Route path="/" element={<Home darkMode={darkMode} setDarkMode={setDarkMode} />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/privacy" element={<Privacy />} />
+
       </Routes>
       
       <ToastContainer
